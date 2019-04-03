@@ -68,6 +68,8 @@ This is because "PUSH" and "PUSHA" will only access up to 32 bytes past the user
 >> `struct' member, global or static variable, `typedef', or
 >> enumeration.  Identify the purpose of each in 25 words or less.
 
+struct mapping *map used in sys_unmap to unmap the mapping int supplied.
+
 ---- ALGORITHMS ----
 
 >> C2: Describe how memory mapped files integrate into your virtual
