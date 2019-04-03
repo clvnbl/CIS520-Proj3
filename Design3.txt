@@ -1,5 +1,5 @@
 		           +---------------------------+
-       	           |         CIS 520           |
+       	           	   |         CIS 520           |
 		           | PROJECT 3: Virtual Memory |
 		           |     DESIGN DOCUMENT       |
 		           +---------------------------+
@@ -8,9 +8,9 @@
 
 >> Fill in the names of your group members.
 
-FirstName LastName
-FirstName LastName
-FirstName LastName
+Calvin Bailey
+Hunter Guthrie
+Payton Jellison
 
 ---- PRELIMINARIES ----
 
@@ -73,26 +73,4 @@ FirstName LastName
 >> implementation either does or does not share much of the code for
 >> the two situations.
 
-			   SURVEY QUESTIONS
-			   ================
 
-Answering these questions is optional, but it will help us improve the
-course in future quarters.  Feel free to tell us anything you
-want--these questions are just to spur your thoughts.  You may also
-choose to respond anonymously in the course evaluations at the end of
-the quarter.
-
->> In your opinion, was this assignment, or any one of the three problems
->> in it, too easy or too hard?  Did it take too long or too little time?
-
->> Did you find that working on a particular part of the assignment gave
->> you greater insight into some aspect of OS design?
-
->> Is there some particular fact or hint we should give students in
->> future quarters to help them solve the problems?  Conversely, did you
->> find any of our guidance to be misleading?
-
->> Do you have any suggestions for the TAs to more effectively assist
->> students, either for future quarters or the remaining projects?
-
->> Any other comments?
