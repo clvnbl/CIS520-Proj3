@@ -56,7 +56,8 @@ try_frame_allooc_and_lock() in frame.c checks to see which frame has been used t
 >> invalid virtual address should cause the stack to be extended into
 >> the page that faulted.
 
-
+We check that the page would not overflow the stack, then make sure the address is no greater than 32 bytes from the esp of the user.
+This is because "PUSH" and "PUSHA" will only access up to 32 bytes past the users esp.
 
 			 MEMORY MAPPED FILES
 			 ===================
