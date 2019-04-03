@@ -73,8 +73,14 @@ try_frame_allooc_and_lock() in frame.c checks to see which frame has been used t
 >> memory subsystem.  Explain how the page fault and eviction
 >> processes differ between swap pages and other pages.
 
+syscall.c has a mapping struct used to store these files. There is a memory address and file stored in the struct. When a page is
+evicted for memory mapped files, it does not make changes to the file unless there have been changes while it was in the page.
+
 >> C3: Explain how you determine whether a new file mapping overlaps
 >> any existing segment.
+
+The page_allocated() function checks makes sure that if file mapping is trying to write to a page that is already taken, it can't
+execute and overwrite it. 
 
 ---- RATIONALE ----
 
@@ -84,5 +90,8 @@ try_frame_allooc_and_lock() in frame.c checks to see which frame has been used t
 >> that much of their implementation can be shared.  Explain why your
 >> implementation either does or does not share much of the code for
 >> the two situations.
+
+We share much of the code, the pages all go through the single page_out() from page.c We do have one difference where it checks if 
+it is a memory mapped file or not so that it knows whether to write anything to the disk on eviction. 
 
 
