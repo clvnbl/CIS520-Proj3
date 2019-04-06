@@ -38,10 +38,12 @@ static void copy_in (void *, const void *, size_t);
 
 static struct lock fs_lock;
  
+ //Initializes the system call by registering the interrupt and locking the file system
 void
 syscall_init (void) 
 {
   intr_register_int (0x30, 3, INTR_ON, syscall_handler, "syscall");
+  //used to ensure only one thread has access to file system
   lock_init (&fs_lock);
 }
  
@@ -240,7 +242,8 @@ sys_remove (const char *ufile)
   return ok;
 }
 
-/* A file descriptor, for binding a file handle to a file. */
+/* A file 
+, for binding a file handle to a file. */
 struct file_descriptor
   {
     struct list_elem elem;      /* List element. */
@@ -557,6 +560,7 @@ sys_mmap (int handle, void *addr)
 }
 
 /* Munmap system call. */
+
 static int
 sys_munmap (int mapping) 
 {
