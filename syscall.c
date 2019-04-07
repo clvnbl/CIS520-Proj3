@@ -505,6 +505,7 @@ static void
 unmap (struct mapping *m) 
 {
 /* add code here */
+	/* removes the list from the mapping struct  */
 	list_remove(&m->elem);
 
 	for (int i = 0; i < m->page_cnt; i++)
