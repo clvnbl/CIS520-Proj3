@@ -53,6 +53,8 @@ page_for_addr (const void *address)
       /* No page.  Expand stack? */
 
 /* add code */
+		//if the current thread stack pointer is less than the current virtual address AND physical address is higher than physical address start
+		//allocate page
       if (((void *)thread_current()->user_esp - 32 < address) && (p.addr > PHYS_BASE - STACK_MAX))
       {
 	      return page_allocate (p.addr, false);
@@ -155,6 +157,7 @@ page_out (struct page *p)
   /* Has the frame been modified? */
   dirtyPage = pagedir_is_dirty (p->thread->pagedir, (const void *) p->addr);
 /* add code here */
+	//If page isn't dirty, set ok to true/succesful
   if(!dirtyPage)
   {
 	  ok = true;
@@ -183,6 +186,7 @@ page_out (struct page *p)
   /* Write frame contents to disk if necessary. */
 
 /* add code here */
+	//If page out is succesful set page frame to null
   if(ok)
   {
 	  p->frame = NULL;
