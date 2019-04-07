@@ -54,7 +54,7 @@ page_for_addr (const void *address)
 
 /* add code */
 		//if the current thread stack pointer is less than the current virtual address AND physical address is higher than physical address start
-		//allocate page
+		//allocate page. The reason we check user esp - 32 is because that is the max distance it will read over the stack. 
       if (((void *)thread_current()->user_esp - 32 < address) && (p.addr > PHYS_BASE - STACK_MAX))
       {
 	      return page_allocate (p.addr, false);
