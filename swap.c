@@ -79,11 +79,11 @@ swap_out (struct page *p)
 	  block_write (swap_device, p->sector + i, (uint8_t *) p->frame->base + i * BLOCK_SECTOR_SIZE);
   }
 /* add code here */ 
- 
-  p->private = false;
-  p->file = NULL;
+  /*This is deleting everything from the page struct so that the page can be used for the next process */
   p->file_offset = 0;
   p->file_bytes = 0;
+  p->private = false;
+  p->file = NULL;
 
   return true;
 }
